@@ -3,13 +3,28 @@
 
 // import functions
 @import"../node_modules/bootstrap/scss/functions";
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Merriweather:wght@700&family=Roboto&display=swap');
+
+
+
+
 $primary: #ff6f65;
-$secondary: #3f826d;
+$secondary: #4d8c79;
 $success: #d3eaff;
 $info: #7bd580;
 $warning:#febfc8;
 $danger:#fedf70;
 $light:#4a5980;
+$dark:#228a69;
+
+$font-family-monospace: 'Merriweather', serif;
+$font-family-monospace2: 'Inter', sans-serif;
+
+
 
 //spacers
 $spacer: 1rem !default;
@@ -23,9 +38,9 @@ $spacers: (
     6:$spacer *4,
     7:$spacer *5,
     8:$spacer *6,
-    9:$spacer *20,
+    9:$spacer *10,
+    10:$spacer *18,
 ) !default;
-
 
 
 
@@ -44,4 +59,60 @@ $custom-colors: (
 $theme-colors: map-merge($theme-colors , $custom-colors);
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.my_bg{
+    background-image: url(/images/1229315.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height:1200px;
+}
+
+.fixy
+{
+    top:1250px;
+    left:100px;
+    position:absolute;
+    z-index:10;
+}
+
+.fixy2
+{
+    top:1750px;
+    left:2000px;
+    position:absolute;
+    z-index:10;
+}
+
+.fixy3
+{
+    top:2345px;
+    left:2150px;
+    position:absolute;
+    z-index:10;
+}
+
+.my-footer{
+    background-image: url(/images/flower.png);
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position:0% 800px;
+}
+
+#CarouselSlider {
+    max-height: 100vh;
+    overflow: hidden;
+}
+.carousel-caption {
+    right: initial;
+    top: 35%;
+    bottom: initial;
+    padding-bottom: 1.25rem;
+    text-align: left;
+}
+.carousel-caption {
+    background-color: rgb(0 0 0 / 22%);
+    padding: 20px;
+    border-radius: 10px;
+}
 
