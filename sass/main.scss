@@ -1,0 +1,47 @@
+// this file is for changes that arent defaulted
+// you cannot use changes that havent been imported, i.e $success
+
+// import functions
+@import"../node_modules/bootstrap/scss/functions";
+$primary: #ff6f65;
+$secondary: #3f826d;
+$success: #d3eaff;
+$info: #7bd580;
+$warning:#febfc8;
+$danger:#fedf70;
+$light:#4a5980;
+
+//spacers
+$spacer: 1rem !default;
+$spacers: (
+    0:0,
+    1:$spacer *0.1,
+    2:$spacer *0.33,
+    3:$spacer,
+    4:$spacer *2,
+    5:$spacer *3,
+    6:$spacer *4,
+    7:$spacer *5,
+    8:$spacer *6,
+    9:$spacer *20,
+) !default;
+
+
+
+
+// import bootstrap.scss
+@import"../node_modules/bootstrap/scss/variables";
+@import"../node_modules/bootstrap/scss/mixins";
+
+
+//custom colours after the import to edit them
+$custom-colors: (
+"primary-light": rgba(137, 219, 240, 0.933),
+"secondary-subtle": rgba(210, 112, 255, 0.933),
+);
+
+// when done, merge
+$theme-colors: map-merge($theme-colors , $custom-colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
