@@ -1,0 +1,466 @@
+
+CREATE DATABASE cinema; 
+
+use cinema; 
+
+  
+
+CREATE TABLE customers( 
+
+id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+
+first_name varchar(20), 
+
+last_name varchar(20), 
+
+email varchar(20), 
+
+address varchar(20), 
+
+phone_number varchar(20), 
+
+PRIMARY KEY(id)); 
+
+  
+
+CREATE TABLE bookings( 
+
+id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+
+price decimal(6,2), 
+
+movie_time time, 
+
+customer_id INT UNSIGNED, 
+
+PRIMARY KEY(id), 
+
+CONSTRAINT fk_booking_customer FOREIGN KEY (customer_id) REFERENCES customers(id) 
+
+); 
+
+ 
+
+  
+
+CREATE TABLE movies( 
+
+id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+
+title varchar(50), 
+
+main_cast varchar(100), 
+
+director varchar(50), 
+
+running_time varchar(20), 
+
+PRIMARY KEY(id)); 
+
+  
+
+CREATE TABLE screens( 
+
+id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+
+screen_number int(11), 
+
+screen_capacity varchar(5), 
+
+screen_type enum('Regular','IMAX','3D'), 
+
+PRIMARY KEY(id)); 
+
+  
+
+CREATE TABLE screenings( 
+
+id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+
+movie_id INT UNSIGNED, 
+
+screen_id INT UNSIGNED, 
+
+screening_date date, 
+
+screening_time time, 
+
+PRIMARY KEY(id), 
+
+CONSTRAINT fk_screening_movie FOREIGN KEY (movie_id) REFERENCES movies(id), 
+
+CONSTRAINT fk_screening_screen FOREIGN KEY (screen_id) REFERENCES screens(id) 
+
+); 
+
+ 
+
+CREATE TABLE booking_screening( 
+
+Id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+
+booking_id INT UNSIGNED, 
+
+screening_id INT UNSIGNED, 
+
+seat_number varchar(5), 
+
+PRIMARY KEY(id), 
+
+CONSTRAINT fk_booking_screening_booking FOREIGN KEY (booking_id) REFERENCES bookings(id), 
+
+CONSTRAINT fk_booking_screening_screening FOREIGN KEY (screening_id) REFERENCES screenings(id)); 
+
+
+
+ 
+/*insert data*/
+INSERT INTO customers (first_name, last_name, email, address, phone_number) 
+
+VALUES 
+
+('Paul', 'Jones', 'paulj@gmail.com', 'Dublin', 0871234567), 
+
+('John', 'Smith', 'johns@gmail.com', 'Cork', 0832220098), 
+
+('Sam', 'Green', 'samg@gmail.com', 'Dublin', 0833217765), 
+
+('Sarah', 'Young', 'sarahy@gmail.com', 'Laois', 0859442121), 
+
+('Milly', 'Reilly', 'millyr@gmail.com', 'Laois', 0867001035);  
+
+ 
+
+INSERT INTO bookings (price, movie_time, customer_id) 
+
+VALUES 
+
+(12.99, '18:15', '2'), 
+
+(17.99, '15:35', '4,1'), 
+
+(8.99, '14:05', '1,5'), 
+
+(23.99, '19:45', '3'), 
+
+(19.99, '13:25', '5,2,3'); 
+
+ 
+
+INSERT INTO movies (title, main_cast, director, running_time) 
+
+VALUES 
+
+('Wolf of Wall Street', 'Leonardo DiCaprio, Jonah Hill, Margot Robbie', 'Martin Scorsese', '180 min'), 
+
+('Nightcrawler', 'Jake Gyllenhaal, Rene Russo, Riz Ahmed', 'Dan Gilroy', '117 min'), 
+
+('The Matrix', 'Keanu Reeves, Laurence Fishbourne, Carrie-Anne Moss', 'Lana Wachowski, Lili Wachowski', '136 min'), 
+
+('Brokeback Mountain', 'Heath Ledger, Jake Gyllenhaal, Linda Cardellini', 'Ang Lee', '134 min'), 
+
+('The Dark Knight', 'Christian Bale, Heath Ledger, Gary Oldman', 'Christopher Nolan', '152 min'); 
+
+ 
+
+INSERT INTO screens (screen_number, screen_capacity, screen_type) 
+
+VALUES 
+
+(1, 60, 'Regular'), 
+
+(2, 60, 'Regular'), 
+
+(3, 70, 'IMAX'), 
+
+(4, 50, '3D'), 
+
+(5, 70, 'IMAX'); 
+
+ 
+
+INSERT INTO screenings (screening_date, screening_time, movie_id, screen_id) 
+
+VALUES 
+
+('2023-11-02', '18:00', 1, 1), 
+
+('2023-11-02', '15:20', 2, 2), 
+
+('2023-11-03', '13:50', 3, 4), 
+
+('2023-11-04', '19:30', 4, 3), 
+
+('2023-11-05', '13:10', 5, 5); 
+
+ 
+
+INSERT INTO booking_screening (booking_id, screening_id, seat_number) 
+
+VALUES 
+
+(3, 5, 'G14'), 
+
+(2, 1, 'A10, A11'), 
+
+(4, 4, 'D7'), 
+
+(1, 3, 'B4, B5, B6'), 
+
+(5, 2, 'E8, E9'); 
+
+/*SQL queries*/
+
+ 
+
+/*A minimum of 6 queries which display: 
+
+o Particular rows based on a condition 
+
+o Particular rows based on more than 1 condition 
+
+o Rows in a particular sequence */
+
+/*All customers with 'john' as their first name*/ 
+
+SELECT * FROM customers WHERE first_name = 'john';  
+
+  
+
+/*All customer names that start with p*/ 
+
+SELECT * FROM customers WHERE first_name LIKE 'p%';  
+
+  
+
+/*Shows movies that start with an n and and with an r*/ 
+
+SELECT * FROM movies WHERE title LIKE 'N%R';  
+
+  
+
+/*Sort movies in alphabetical order*/ 
+
+SELECT * FROM movies ORDER BY title ASC;  
+
+  
+
+/*Shows books that cost over €10 and less that €20*/ 
+
+SELECT * FROM bookings WHERE price >= '10' AND price <= '20';  
+
+ 
+
+/*shows all customers that have a name beginning with s and are from Dublin */ 
+
+SELECT * FROM customers WHERE first_name LIKE 'S%' AND address= 'Dublin'; 
+
+ 
+
+/*A minimum of: 
+
+o 5 aggregate function queries, 2 of which have a group by clause 
+
+o 5 Joins 
+
+o 2 subqueries  */
+
+ 
+
+/*All customers with 'john' as their first name*/ 
+
+SELECT * FROM customers WHERE first_name = 'john';  
+
+  
+
+  
+
+/*All customer names that start with p*/ 
+
+SELECT * FROM customers WHERE first_name LIKE 'p%';  
+
+  
+
+/*Shows movies that start with an n and and with an r*/ 
+
+SELECT * FROM movies WHERE title LIKE 'N%R';  
+
+  
+
+  
+
+/*Sort movies in alphabetical order*/ 
+
+SELECT * FROM movies ORDER BY title ASC;  
+
+  
+
+  
+
+/*Shows books that cost over €10 and less that €20*/ 
+
+SELECT * FROM bookings WHERE price >= '10' AND price <= '20';  
+
+  
+
+  
+
+/*Shows all customers that have a name beginning with s and are from Dublin */ 
+
+SELECT * FROM customers WHERE first_name LIKE 'S%' AND address= 'Dublin';  
+
+  
+
+/*Shows total sum of all bookings*/ 
+
+SELECT SUM(price) FROM bookings;  
+
+  
+
+/*Shows all bookings that are over €15*/ 
+
+SELECT COUNT(price) FROM bookings WHERE price>15;  
+
+  
+
+ 
+
+/*Shows average running time of the movies*/ 
+
+SELECT AVG(running_time) FROM movies;  
+
+  
+
+/*Shows all customer addresses and how many are from each address*/ 
+
+SELECT COUNT(id), address FROM customers GROUP BY address;  
+
+  
+
+/*Shows all customer addresses and how many are from each address, in a descending order*/ 
+
+SELECT COUNT(id), address FROM customers GROUP BY address ORDER BY COUNT(id) DESC; 
+
+ 
+
+/*Select customers and booking price they are paying*/ 
+
+SELECT customers.first_name, customers.last_name, bookings.price 
+
+FROM customers 
+
+JOIN bookings 
+
+ON bookings.customer_id = customers.id; 
+
+ 
+
+/*Select all bookings with customer information*/ 
+
+SELECT bookings.id, bookings.price, bookings.movie_time, customers.first_name, customers.last_name
+FROM bookings
+INNER JOIN customers 
+ON bookings.customer_id = customers.id;
+
+ 
+
+/*select everthing about the customers that made a booking*/ 
+
+SELECT customers.id, customers.first_name, customers.last_name, customers.email
+FROM customers
+INNER JOIN bookings 
+ON customers.id = bookings.customer_id;
+ 
+
+ 
+
+/*Retrieves information about movies, their screenings, and the bookings. */ 
+
+SELECT movies.title, bookings.price, bookings.movie_time
+FROM movies
+INNER JOIN screenings ON movies.id = screenings.movie_id
+INNER JOIN booking_screening ON screenings.id = booking_screening.screening_id
+INNER JOIN bookings ON booking_screening.booking_id = bookings.id;
+ 
+
+/*Select all customers and their bookings (including customers without bookings)*/ 
+
+SELECT customers.id, customers.first_name, customers.last_name, customers.email, bookings.id AS booking_id, bookings.price, bookings.movie_time
+FROM customers
+RIGHT JOIN bookings ON customers.id = bookings.customer_id;
+
+ 
+
+/*Subquery in the WHERE Clause - Find Customers who made Bookings*/ 
+
+SELECT id, first_name, last_name FROM customers WHERE id IN (SELECT DISTINCT customer_id FROM bookings); 
+
+ 
+
+/*Subquery in the SELECT Clause - Count Screenings for Each Movie*/ 
+
+SELECT movies.title, (SELECT COUNT(*) FROM screenings WHERE screenings.movie_id = movies.id) AS screening_count
+FROM movies;
+ 
+
+ 
+
+/*A minimum of: 
+
+o 3 queries using the UPDATE statement. Each UPDATE query should update rows in different tables 
+
+o 3 queries that DELETE data from the database. Each DELETE query should delete rows from different tables 
+
+o 2 ALTER queries, 1 to ADD a column, 1 to DELETE a column */
+
+ 
+
+/*update customers with new email address and phone no. who's id is one*/ 
+
+UPDATE customers 
+
+SET email = 'new.email@example.com', phone_number = '555-5678'  
+
+WHERE id = 1; 
+
+ 
+
+ 
+/*update movies screening at this date and change price to 1.1x*/ 
+
+UPDATE screenings 
+
+SET screening_date = '2023-11-20'  
+
+WHERE movie_id = 1 AND screen_id = 1; 
+
+UPDATE bookings SET price = price * 1.1; 
+
+ 
+/*adds column*/
+ALTER TABLE customers
+ADD COLUMN loyalty_points INT;
+
+
+ 
+
+/*delete screen_type from screens*/ 
+ALTER TABLE screens
+DROP COLUMN screen_type;
+
+
+ 
+
+/*delete screenings with this date*/ 
+
+DELETE FROM screenings WHERE screening_date = '2023-11-15'; 
+
+ 
+
+/*Adds DOB column*/ 
+
+ALTER TABLE customers ADD COLUMN date_of_birth DATE; 
+
+/*deletes main cast column*/ 
+
+ALTER TABLE movies DROP COLUMN main_cast; 

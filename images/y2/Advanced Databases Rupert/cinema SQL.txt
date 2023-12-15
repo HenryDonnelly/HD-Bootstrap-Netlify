@@ -1,0 +1,39 @@
+use cinema;
+
+CREATE TABLE customer(
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+first_name varchar(20),
+last_name varchar(20),
+email varchar(20),
+address varchar(20),
+phone_number varchar(20),
+PRIMARY KEY(id));
+
+CREATE TABLE booking(
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+price decimal(6,2),
+seat_number varchar(5),
+booking_date date,
+booking_time time,
+PRIMARY KEY(id));
+
+CREATE TABLE movie(
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+title varchar(50),
+main_cast varchar(100),
+director varchar(50),
+running_time varchar(20),
+PRIMARY KEY(id));
+
+CREATE TABLE screen(
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+screen_number int(11),
+screen_type enum('Regular','IMAX','3D'),
+PRIMARY KEY(id));
+
+CREATE TABLE screening(
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+CONSTRAINT fk_screening_movie FOREIGN KEY(id) REFERENCES movie(id),
+CONSTRAINT fk_screening_screen FOREIGN KEY(id) REFERENCES screen(id),
+CONSTRAINT fk_screening_booking FOREIGN KEY(id) REFERENCES booking(id)
+);

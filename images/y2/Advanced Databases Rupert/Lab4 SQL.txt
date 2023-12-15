@@ -1,0 +1,25 @@
+CREATE DATABASE Lab4;
+use Lab4;
+
+CREATE TABLE sales (
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+sale_amount int(4),
+sale_date date,
+saleperson_id int(4),
+customer_id int(10),
+PRIMARY KEY (id) );
+
+INSERT INTO sales(sale_amount,sale_date,saleperson_id,customer_id)
+VALUES('500','2023-10-10','3','4');
+
+INSERT INTO sales(sale_amount,sale_date,saleperson_id,customer_id)
+VALUES('300','2023-10-11','2','3');
+
+INSERT INTO sales(sale_amount,sale_date,saleperson_id,customer_id)
+VALUES('400','2023-10-11','2','3');
+
+INSERT INTO sales(sale_amount,sale_date,saleperson_id,customer_id)
+VALUES('800','2023-10-14','3','2');
+
+INSERT INTO sales(sale_amount,sale_date,saleperson_id,customer_id)
+VALUES('900','2023-10-17','1','5');

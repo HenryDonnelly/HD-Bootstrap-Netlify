@@ -21,6 +21,7 @@ $danger:#fedf70;
 $light:#4a5980;
 $dark:#228a69;
 
+
 $font-family-monospace: 'Merriweather', serif;
 $font-family-monospace2: 'Inter', sans-serif;
 
@@ -51,8 +52,12 @@ $spacers: (
 
 //custom colours after the import to edit them
 $custom-colors: (
-"primary-light": rgba(137, 219, 240, 0.933),
-"secondary-subtle": rgba(210, 112, 255, 0.933),
+"primary-light": #83D2C4,
+"secondary-light": #D9A4DA,
+"tertiary-light":#8C81B7,
+"quadra-light":#848484,
+"primary-dark":#4D8A51,
+"secondary-dark":#99EF9F,
 );
 
 // when done, merge
@@ -86,8 +91,16 @@ $theme-colors: map-merge($theme-colors , $custom-colors);
 
 .fixy3
 {
-    top:2345px;
-    left:2150px;
+    top:146.563rem;
+    left:134.375rem;
+    position:absolute;
+    z-index:10;
+}
+
+.fixy4
+{
+    top:190.563rem;
+    left:-30.000rem;
     position:absolute;
     z-index:10;
 }
@@ -115,4 +128,6 @@ $theme-colors: map-merge($theme-colors , $custom-colors);
     padding: 20px;
     border-radius: 10px;
 }
+
+
 

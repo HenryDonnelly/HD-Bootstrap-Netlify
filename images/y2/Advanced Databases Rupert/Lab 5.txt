@@ -1,0 +1,92 @@
+/*BOOKSTORE*/
+1. SELECT customers.first_name,customers.last_name,orders.id
+FROM customers
+JOIN orders
+ON orders.customer_id = customers.id
+WHERE customer_id=1;
+
+2. SELECT customers.first_name,customers.last_name,orders.id,SUM(orders.cost)
+FROM customers
+JOIN orders
+ON orders.customer_id = customers.id
+WHERE customer_id=1;
+
+3. SELECT books.id, books.title, book_order.order_id,book_order.book_id
+FROM books
+JOIN book_order
+ON books.id = book_order.book_id
+WHERE book_order.order_id=2;
+
+4. SELECT customers.first_name,customers.last_name,orders.id,books.title
+FROM customers
+JOIN orders
+ON orders.customer_id = customers.id
+JOIN book_order
+ON book_order.order_id = orders.id
+JOIN books
+ON books.id = book_order.book_id
+WHERE customer_id=1;
+
+5. SELECT customers.first_name,customers.last_name,orders.id,books.title
+FROM customers
+JOIN orders
+ON orders.customer_id = customers.id
+JOIN book_order
+ON book_order.order_id = orders.id
+JOIN books
+ON books.id = book_order.book_id
+WHERE customer_id=2;
+
+6. SELECT customers.first_name,customers.last_name,orders.id,books.title
+FROM customers
+JOIN orders
+ON orders.customer_id = customers.id
+JOIN book_order
+ON book_order.order_id = orders.id
+JOIN books
+ON books.id = book_order.book_id
+WHERE books.id=2;
+
+/*PUBS*/
+1. SELECT employee.fname, employee.lname, employee.emp_id, publishers.pub_name
+FROM employee
+JOIN publishers
+ON employee.pub_id = publishers.pub_id
+WHERE publishers.pub_id='0877';
+
+2. SELECT employee.fname, employee.lname, employee.emp_id, publishers.pub_name
+FROM employee
+JOIN publishers
+ON employee.pub_id = publishers.pub_id
+WHERE employee.lname='Thomas';
+
+3. SELECT employee.fname, employee.lname, employee.emp_id, publishers.pub_name
+FROM employee
+JOIN publishers
+ON employee.pub_id = publishers.pub_id
+WHERE publishers.country='France' ORDER BY employee.fname ASC
+
+4. SELECT authors.au_fname, authors.au_lname, authors.au_id, titles.title
+FROM authors
+JOIN titleauthor
+ON authors.au_id = titleauthor.au_id
+JOIN titles
+ON titles.title_id = titleauthor.title_id;
+
+5. SELECT authors.au_fname, authors.au_lname, authors.au_id, titles.title
+FROM authors
+JOIN titleauthor
+ON authors.au_id = titleauthor.au_id
+JOIN titles
+ON titles.title_id = titleauthor.title_id
+WHERE titles.title='The Gourmet Microwave';
+
+6. SELECT authors.au_fname, authors.au_lname, authors.au_id, titles.title
+FROM authors
+JOIN titleauthor
+ON authors.au_id = titleauthor.au_id
+JOIN titles
+ON titles.title_id = titleauthor.title_id
+WHERE authors.au_fname='Charlene';
+
+** not sure why no.6 isnt working, looks fine **

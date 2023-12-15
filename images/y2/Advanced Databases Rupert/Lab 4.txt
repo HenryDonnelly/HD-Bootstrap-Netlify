@@ -1,0 +1,17 @@
+Part A
+
+SELECT MAX(sale_amount) FROM `sales`;
+SELECT MIN(sale_amount) FROM `sales`;
+SELECT SUM(sale_amount) FROM `sales`;
+SELECT SUM(sale_amount) FROM `sales`;
+SELECT SUM(sale_amount) FROM `sales` WHERE saleperson_id=2;
+SELECT SUM(sale_amount), saleperson_id FROM `sales` GROUP BY saleperson_id;
+ ***
+
+Part B
+SELECT COUNT(title_id) FROM `titles`;
+SELECT COUNT(pub_id) FROM `publishers`;
+SELECT COUNT(title_id) FROM `titles` WHERE type='business';
+SELECT SUM(ytd_sales),type FROM `titles` GROUP BY type; *** tried using concat, didnt figure it out
+SELECT avg(ytd_sales),type FROM `titles` GROUP BY type;
+join here* q6

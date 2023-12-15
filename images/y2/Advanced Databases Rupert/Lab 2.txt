@@ -1,0 +1,78 @@
+1. CREATE TABLE orders
+(id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+customer_id INT UNSIGNED,
+cost decimal(4,2),
+order_date date,
+PRIMARY KEY (id),
+CONSTRAINT fk_orders_customers FOREIGN KEY (customer_id) REFERENCES customers(id));
+
+2. INSERT INTO orders (customer_id, cost, order_date)
+VALUES ('3','40.98','2023/10/13');
+
+INSERT INTO orders (customer_id, cost, order_date)
+VALUES ('1','14.75','2023/10/13');
+
+INSERT INTO orders (customer_id, cost, order_date)
+VALUES ('2','14.75','2023/11/10');
+
+INSERT INTO orders (customer_id, cost, order_date)
+VALUES ('2','20.99','2023/8/14');
+
+3. SELECT * FROM orders;
+
+4. CREATE TABLE books
+(id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+Title varchar(255),
+ISBN varchar(255),
+Author varchar(255),
+cost decimal(4,2),
+PRIMARY KEY (id));
+
+5. INSERT INTO books (Title, ISBN, Author, cost)
+VALUES ('The picture of Dorian Gray', ' 9780141442464', 'Oscar Wilde', '14.75');
+
+INSERT INTO books (Title, ISBN, Author, cost)
+VALUES ('I am a Cat', ' 9780146642464', 'Soseki Natsume', '20.99');
+
+INSERT INTO books (Title, ISBN, Author, cost)
+VALUES ('Demons', ' 9780144774464', 'Fyodor Dostoevsky', '19.99');
+
+6. SELECT * FROM books;
+
+7. CREATE TABLE orders_books
+(id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+order_id INT UNSIGNED, 
+book_id INT UNSIGNED,
+PRIMARY KEY (id),
+CONSTRAINT fk_orders_books_books FOREIGN KEY (book_id) REFERENCES books(id),
+CONSTRAINT fk_orders_books_orders FOREIGN KEY (order_id) REFERENCES orders(id) );
+
+8. INSERT INTO orders_books (order_id, book_id)
+VALUES (1,2);
+INSERT INTO orders_books (order_id, book_id)
+VALUES (1,1);
+INSERT INTO orders_books (order_id, book_id)
+VALUES (3,1);
+INSERT INTO orders_books (order_id, book_id)
+VALUES (4,1);
+INSERT INTO orders_books (order_id, book_id)
+VALUES (4,2);
+INSERT INTO orders_books (order_id, book_id)
+VALUES (5,3);
+INSERT INTO orders_books (order_id, book_id)
+VALUES (5,3);
+
+9. SELECT * FROM order_book;
+
+10. SELECT * FROM orders WHERE order_date >= '2023/09/14';
+
+11. SELECT * FROM orders WHERE order_date = '2023/09/15';
+
+12. SELECT * FROM orders WHERE order_date = '2023/09/15' AND cost > 100 ;
+
+13. SELECT * FROM customers JOIN customers ON orders.id=customers.id
+
+14. SELECT * FROM customer_id WHERE customer_id = 2;
+
+
+

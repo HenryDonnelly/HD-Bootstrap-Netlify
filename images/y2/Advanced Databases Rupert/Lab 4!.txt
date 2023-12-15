@@ -1,0 +1,23 @@
+PART A
+
+SELECT MAX(sale_amount) FROM `sales`;
+SELECT MIN(sale_amount) FROM `sales`;
+SELECT SUM(sale_amount),saleperson_id FROM `sales` GROUP BY saleperson_id;
+SELECT SUM(sale_amount),saleperson_id FROM `sales` WHERE saleperson_id=2;
+SELECT SUM(sale_amount),saleperson_id FROM `sales` GROUP BY saleperson_id;**
+
+PART B
+
+SELECT COUNT(title_id) FROM `titles`;
+SELECT COUNT(pub_id) FROM `publishers`;
+SELECT COUNT(title_id) WHERE type='business' FROM `titles`;
+SELECT SUM(ytd_sales),type FROM `titles` GROUP BY type; *** how to use string in sql? ***
+SELECT AVG(price),type FROM `titles` GROUP BY type;
+
+SELECT titles.price, publishers.pub_name, publishers.pub_id
+FROM publishers
+INNER JOIN titles ON titles.title_id=titles.titles_id; *** non functioning join
+
+SELECT pub_id
+ytd_sales / price
+FROM `titles`;

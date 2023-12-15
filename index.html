@@ -16,46 +16,43 @@
 
     <header #="top">
         <nav class="navbar navbar-expand-lg bg-primary py-0">
+            
             <div class="container-xl">
-                <!-- <div class="position-absolute top-0 start-0">hello</div> -->
-                <div class="bg-dark col-1 py-5 pb-2">
+                <!-- d-none makes it so the logo dissapears if screen size is too small -->
+                <div class="bg-dark col-1 py-5 pb-2 d-none d-xl-block">
                     <img src="./images/6666666.png" class="img-fluid" />
                     <h6 class="text-center text-uppercase pt-5">greenville</h6>
                 </div>
 
-                <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-self-baseline pt-3">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-self-baseline pt-3">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNav">
                     <li>
-                        <button class="btn" type="submit">
-                            Menu
-                        </button>
+                        <a href="#" class="btn btn-primary fw-bold">Menu</a>
                     </li>
                     <li>
-                        <button class="btn" type="submit">
-                            Home
-                        </button>
+                        <a href="#" class="btn btn-primary fw-bold ">Home</a>
                     </li>
                     <li>
-                        <button class="btn" type="submit">
-                            Contact Us
-                        </button>
+                        <a href="#" class="btn btn-primary fw-bold">Contact us</a>
                     </li>
                     <li>
-                        <button class="btn" type="submit">
-                            About
-                        </button>
+                        <a href="#" class="btn btn-primary fw-bold">About</a>
                     </li>
                     <li>
-                        <button class="btn" type="submit">
-                            Life
-                        </button>
+                        <a href="basket.html" class="btn btn-primary fw-bold">Basket</a>
                     </li>
+                </div>   
                 </ul>
+                
             </div>
-            </div>
-
+           
+        
         </nav>
 
-
+    </header>
         <div class="container-fluid bg-primary pt-5 my-0 d-flex flex-column justify-content-end">
             <div class="container-xl">
 
@@ -72,7 +69,7 @@
 
                         </h3>
                         <div>
-                            <i class="bi bi-arrow-down fs-2"></i>
+                            <i class="bi bi-arrow-down fs-2"  ></i>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -83,7 +80,7 @@
         </div>
         </div>
         </div>
-    </header>
+
 
     <div class="container-fluid bg-success py-10 my-0 d-flex flex-column justify-content-end">
         <img src="images/fix.png" class="fixy" alt="">
@@ -96,7 +93,7 @@
                         <h5 class="card-title">"The Main Show"</h5>
                         <p class="card-text">For Those who want the royal treatment. This pescatarian-friendly meal is
                             the fan-fav for a reason! </p>
-                        <a href="#" class="btn btn-primary">See Mains</a>
+                        <a href="product.html" class="btn btn-primary">See Mains</a>
                     </div>
                 </div>
                 <div class="card col-md-4 bg-success border-0" class="card-img-top">
@@ -122,39 +119,42 @@
         </div>
     </div>
 
-    <div class="container-fluid bg-info p-8 my-0  my-footer my-flower d-flex flex-row justify-content-center">
+
+
+    <div class="container-fluid bg-info pt-7 pb-7 my-0 d-flex flex-row justify-content-center ">
         <img src="images/flower11.png" class="fixy3" alt="">
-        <div class="container-xl text-black ">
-            <div class="row vh-50 d-flex align-items-center g-0 bg-dark">
-                <div class="col-md-6">
+        <img src="images/asdasd.png" class="fixy4" alt="">
+        <div class="container-xl">
+            <div class="row g-0">
+                <div class="col-md-6 d-flex flex-column justify-content-center bg-primary-dark">
                     <h1 class="fw-bold lh-1 display-3 font-family-monospace">
                         “The perfect place for an empty stomach.”
                     </h1>
                     <h6>-Gale Thompson</h6>
-                    <h3 class="pt-7">If the mayor of bray can agree, then we can all agree that checking out this menu is a must!
+                    <h3>If the mayor of bray can agree, then we can all agree that checking out this menu is a must!
                         (signatures not included)</h3>
                 </div>
                 <div class="col-md-6">
                     <img src="images/Marinated-BLT-with-Chicken-CBLT-by-Two-Cloves-Kitchen-GLR-Final-720x720.jpg" class="img-fluid" alt="" style="width: 100%;" />
                 </div>
-                
-            </div>
-            <div class="row vh-50 d-flex align-items-center g-0 bg-dark">
-                <div class="col-md-6">
-                    <img src="images/Marinated-BLT-with-Chicken-CBLT-by-Two-Cloves-Kitchen-GLR-Final-720x720.jpg" class="img-fluid" alt="" style="width: 100%;" />
-                </div>
-                <div class="col-md-6">
-                    <h1 class="fw-bold lh-1 display-3">
-                        “The perfect place for an empty stomach.”
-                    </h1>
-                    <h6>-Gale Thompson</h6>
-                    <h3 class="pt-7">If the mayor of bray can agree, then we can all agree that checking out this menu is a must!
-                        (signatures not included)</h3>
-                </div>
-                
-            </div>
-        </div>
-    </div>
+            </div>           
+                    <div class="row g-0 bg-secondary-dark">
+                        <div class="col-md-6">
+                            <img src="images/RR.png" class="img-fluid" alt="" />
+                        </div>
+                        <div class="col-md-6 d-flex flex-column justify-content-center">
+                            <h1 class="fw-bold lh-1 display-3 font-family-monospace">
+                                “The perfect place for an empty stomach.”
+                            </h1>
+                            <h6>-Gale Thompson</h6>
+                            <h3>If the mayor of bray can agree, then we can all agree that checking out this menu is a must!
+                                (signatures not included)</h3>
+                        </div>
+                        
+                    </div>
+                    </div>             
+                    </div>
+
 
     
 
@@ -181,35 +181,16 @@
         </div>
     </div>
 
-    <div class="container-fluid bg-danger py-9 my-0 ">
-        <div class="container-xl">
-            <div class="row vh-50 d-flex align-items-center">
-                <h3 class="d-flex justify-content-center pb-8 display-1">GALLERY</h3>
-                <div class="col-md-4">
-                    <img src="images/burger_sandwich_PNG96712.png" class="img-fluid" alt="" />
-                </div>
-                <div class="col-md-4">
-                    <img src="images/Veg-Food-PNG-High-Quality-Image.png" class="img-fluid" alt="" />
-                </div>
-                <div class="col-md-4">
-                    <img src="images/RRR.png" class="img-fluid" alt="" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid bg-danger">
+    <div class="container-fluid bg-danger pb-5 pt-5">
         <div class="container-xl">
             <h3 class="d-flex justify-content-center pb-8 display-1">GALLERY</h3>
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./images/burger_sandwich_PNG96712.png" class="d-block w-100" alt="...">
+                        <img src="./images/Group 2.svg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./images/Veg-Food-PNG-High-Quality-Image.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./images/RRR.png" class="d-block w-100" alt="...">
+                        <img src="./images/Property 1=Default.png" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -230,7 +211,7 @@
     <div class="container-fluid bg-light py-7 my-0 ">
         <div class="footer">
             <div class="row vh-50 d-flex">
-                <h1 class="d-flex justify-content-center pb-8 display-1">GREENVILLE</h3>
+                <h1 class="d-flex justify-content-center pb-8 display-1">GREENVILLE</h1>
 
                     <div class="col-md-3">
                         <h1 class="d-flex justify-content-center display-3">Newsletter</h1>
@@ -262,10 +243,10 @@
                     <div class="col-md-3">
                         <h1 class="d-flex justify-content-center display-3">greenvilledeli.ie</h1>
                         <ul class="list-unstyled">
-                            <li class="h3 mt-3"><i class="bi bi-geo-alt"></i>312 Rathmines Rd Lower, Dublin 6, D06
+                            <li class="h3 mt-3"><i class="bi bi-geo-alt me-3"></i>312 Rathmines Rd Lower, Dublin 6, D06
                                 HX53</a>
-                            <li class="h3 mt-3"><i class="bi bi-envelope"></i>Greenvilledeli@gmail.com</li>
-                            <li class="h3 mt-3"><i class="bi bi-telephone-fill"></i>086 848 6930</li>
+                            <li class="h3 mt-3"><i class="bi bi-envelope me-3"></i>Greenvilledeli@gmail.com</li>
+                            <li class="h3 mt-3"><i class="bi bi-telephone-fill me-3"></i>086 848 6930</li>
                         </ul>
                     </div>
 

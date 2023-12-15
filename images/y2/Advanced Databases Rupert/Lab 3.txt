@@ -1,0 +1,14 @@
+1. SELECT * FROM titles WHERE price BETWEEN 10.00 AND 20.00;
+2. SELECT * FROM titles WHERE price IS NULL;
+3. SELECT * FROM titles WHERE title LIKE '%computer%';
+4. SELECT * FROM titles WHERE type ='mod_cook' OR type='trad_cook';
+5. SELECT * FROM titles WHERE type='psychology' AND price>'20.00';
+6. SELECT * FROM titles WHERE advance>'5000' AND ytd_sales<'4000' ORDER BY title ASC;
+7. The Gourmet Microwave
+8. SELECT * FROM titles WHERE title LIKE '_o%';
+9. SELECT * FROM titles WHERE title NOT LIKE '%the%';
+10. SELECT au_fname,au_lname FROM authors WHERE au_lname LIKE '%y';
+11. Albert Ringer, Anne Ringer, Meander Smith
+12. Innes del Castillo, Morningstar Green
+13. SELECT title,price,ytd_sales,price * ytd_sales AS value_of_sales FROM titles WHERE price IS NOT NULL ;
+14. MC2222, MC3021, PC1035, PC8888, TC3218, TC4203, TC7777
